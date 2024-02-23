@@ -1,0 +1,26 @@
+{
+  "name": "@bitcoinbeachtravemuende/bitcoin-logo",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "type": "module",
+  "types": "types/bitcoin-logo.d.ts",
+  "files": [
+    "/dist/index.js",
+    "/types/bitcoin-logo.d.ts",
+    "/custom-elements.json"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "manifest": "custom-elements-manifest analyze",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.9.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.0"
+  },
+  "customElements": "custom-elements.json"
+}
