@@ -4,6 +4,11 @@
 
 The SVG itself is friendly borrowed from `Bitcoin Design` ([source](https://bitcoin.design/assets/images/guide/getting-started/visual-language/bitcoin-symbol.svg)).
 
+## Few variants
+
+![bitcoin-logo-webcomponent](https://github.com/BitcoinBeachTravemuende/bitcoin-logo-webcomponent/assets/47693/1157247c-6b2e-4fda-aa90-e2d6a096e0f9)
+
+
 ## Features
 
 - Customize size and colors as you like
