@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitcoin Logo Web Component</title>
+  </head>
+  <body>
+    <div style="display: flex; min-height: 100vh">
+      <div
+        style="
+          display: flex;
+          width: 50%;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          background-color: white;
+        "
+      >
+        <bitcoin-logo size="400px" />
+      </div>
+      <div
+        style="
+          display: flex;
+          width: 50%;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          background-color: rgb(59, 59, 59);
+        "
+      >
+        <bitcoin-logo
+          size="400px"
+          color="grey"
+          background-color="transparent"
+        />
+      </div>
+    </div>
+    <script type="module" src="/src/bitcoin-logo.ts"></script>
+  </body>
+</html>

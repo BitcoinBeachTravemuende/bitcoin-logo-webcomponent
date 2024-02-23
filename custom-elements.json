@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/bitcoin-logo.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BitcoinLogo",
+          "members": [
+            {
+              "kind": "field",
+              "name": "shadowRoot",
+              "type": {
+                "text": "ShadowRoot"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Size to determine width and height of the logo",
+              "name": "size"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Background color of the logo",
+              "name": "bgColor"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "Color of the capital `₿`",
+              "name": "color"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "bitcoin-logo",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "bitcoin-logo",
+          "declaration": {
+            "name": "BitcoinLogo",
+            "module": "src/bitcoin-logo.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "BitcoinLogo",
+            "module": "src/bitcoin-logo.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
