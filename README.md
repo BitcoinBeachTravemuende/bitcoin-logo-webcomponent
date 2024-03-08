@@ -14,7 +14,7 @@ The SVG itself is friendly borrowed from `Bitcoin Design` ([source](https://bitc
 - Customize size and colors as you like
 - SVG based
 - No dependencies
-- Small bundle size: `3.14 kB │ gzip: 1.53 kB`
+- Small bundle size: `3.26 kB │ gzip: 1.63 kB`
 - Supported by modern browsers
 - Use it with your favourite web framework
 
@@ -54,7 +54,7 @@ TBD
 
 ### Properties
 
-- `size: string`: `px` or `em`, eg. `size="300px"` or `size="8em"`
+- `size: string`: Valid size value in `px`, `%` or `em`. For example: `size="300px"`, `size="50%"` or `size="300px"`
 - `background-color: string`: Background color. Value can be either a valid color `name` or a `hex` color, eg. `bgColor="white"` or `bgColor="#FFF"`
 - `color: string`: Color of the capital `₿`. Value can be either a valid color `name` or a `hex` color, eg. `color="black"` or `color="#000"`
 
