@@ -13,10 +13,29 @@
           "members": [
             {
               "kind": "field",
-              "name": "shadowRoot",
+              "name": "#shadowRoot",
+              "privacy": "private",
               "type": {
                 "text": "ShadowRoot"
               }
+            },
+            {
+              "kind": "field",
+              "name": "#sheet",
+              "privacy": "private",
+              "default": "new CSSStyleSheet()"
+            },
+            {
+              "kind": "method",
+              "name": "#updateSize"
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "type": {
+                "text": "array"
+              },
+              "default": "[this.#sheet]"
             }
           ],
           "attributes": [

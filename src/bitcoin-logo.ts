@@ -6,7 +6,7 @@ export type Properties = {
 
 const attributes: (keyof Properties)[] = ["size", "color", "background-color"];
 
-const DEFAULT_SIZE = "140px";
+const DEFAULT_SIZE = "145px";
 const DEFAULT_COLOR = "white";
 const DEFAULT_BG_COLOR = "#F7931A";
 
@@ -16,31 +16,37 @@ const DEFAULT_BG_COLOR = "#F7931A";
  * @attribute {string} color Color of the capital `₿`
  */
 class BitcoinLogo extends HTMLElement {
-  shadowRoot: ShadowRoot;
+  #shadowRoot: ShadowRoot = this.attachShadow({ mode: "open" });
+  #sheet = new CSSStyleSheet()
 
   constructor() {
     super();
-    this.shadowRoot = this.attachShadow({ mode: "open" });
+    this.#shadowRoot.adoptedStyleSheets = [this.#sheet]
   }
-
   static get observedAttributes(): string[] {
     return [...attributes];
   }
 
+  #updateSize() {
+    var size = this.getAttribute("size") || DEFAULT_SIZE;
+    this.#sheet.replaceSync(`:host {
+      height: ${size};
+      width: ${size};
+    }`);
+  } 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
     // dirty check
     if (oldValue === newValue) return;
 
-    const logo = this.shadowRoot.getElementById("logo");
     // path of `₿`
-    const b = this.shadowRoot.getElementById("₿");
+    const b = this.#shadowRoot.getElementById("₿");
     // path of background
-    const bg = this.shadowRoot.getElementById("₿₿");
+    const bg = this.#shadowRoot.getElementById("₿₿");
 
     switch (name) {
       case "size": {
-        logo?.style.setProperty("width", newValue || DEFAULT_SIZE);
-        logo?.style.setProperty("height", newValue || DEFAULT_SIZE);
+        
+        this.#updateSize();
         break;
       }
       case "background-color": {
@@ -59,7 +65,7 @@ class BitcoinLogo extends HTMLElement {
     logo.setAttribute("id", "logo");
     logo.setAttribute("width", "100%");
     logo.setAttribute("height", "100%");
-    logo.setAttribute("viewBox", "0 0 144 145");
+    logo.setAttribute("viewBox", "0 0 145 145");
     logo.innerHTML = `<path id="₿₿" d="M141.846 89.665C132.225 128.236 93.1561 151.711 54.5761 142.093C16.0121 132.476 -7.46593 93.408 2.15707 54.839C11.7711 16.264 50.8431 -7.21401 89.4101 2.40299C127.985 12.02 151.462 51.091 141.846 89.665Z" fill=${
       this.getAttribute("background-color") || DEFAULT_BG_COLOR
     } />
@@ -67,16 +73,9 @@ class BitcoinLogo extends HTMLElement {
       this.getAttribute("color") || DEFAULT_COLOR
     } />`;
 
-    const style = document.createElement("style");
+    this.#updateSize();
 
-    style.textContent = `
-      #logo {
-        height: ${this.getAttribute("size") || DEFAULT_SIZE};
-        width: ${this.getAttribute("size") || DEFAULT_SIZE};
-      }`;
-
-    this.shadowRoot.appendChild(logo);
-    this.shadowRoot.appendChild(style);
+    this.#shadowRoot.appendChild(logo);
   }
 }
 
